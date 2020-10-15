@@ -11,16 +11,25 @@ User.init({
     image: DataTypes.STRING
 }, {sequelize})
 
-class Task extends Model {}
-Task.init({
-    name: DataTypes.STRING,
+class Project extends Model {}
+Project.init({
+    name: DataTypes.STRING
 }, {sequelize})
 
+class Task extends Model {}
+Task.init({
+    name: DataTypes.STRING
+}, {sequelize})
+
+Project.hasMany(User)
+Project.hasMany(Task)
+User.hasMany(Project)
 User.hasMany(Task)
 Task.belongsTo(User)
 
 module.exports = {
-    User, 
+    User,
+    Project, 
     Task,
     sequelize
 }
