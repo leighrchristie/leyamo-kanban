@@ -4,7 +4,7 @@ const Handlebars = require('handlebars')
 const expressHandlebars = require('express-handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const app = express()
-const {User, Task, sequelize} = require('./models')
+const {User, Task, Project, sequelize} = require('./models')
 const handlebars = expressHandlebars({
     handlebars: allowInsecurePrototypeAccess(Handlebars)
 })
@@ -26,6 +26,11 @@ app.get('/view_all_projects', (req, res) => {
 
 app.get('/project_board', (req, res) => {
     res.render('project_board')
+})
+
+app.get('/project_board/:id/add_task', async (req, res) => {
+    const project = await Project.findByPk(req.params.id)
+    res.render('add_task', {project})
 })
 
 
