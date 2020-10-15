@@ -23,7 +23,6 @@ Task.init({
 
 Project.hasMany(User)
 Project.hasMany(Task)
-User.hasMany(Project)
 User.hasMany(Task)
 Task.belongsTo(User)
 
