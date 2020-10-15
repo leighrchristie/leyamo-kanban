@@ -8,7 +8,13 @@
             <label>Image URL</label>
             <input name="image" type="url" placeholder="Image URL" required/>
             <br>
-            <button>Add user</button>
+            <button>Submit</button>
+        </form>
+        <form action="/new_project_board" method="POST">
+            <label>Create a new project board</label>
+            <input name="name" type="text" placeholder="Project board's name" required/>
+            <br>
+            <button>Submit</button>
         </form>
         <a href="/view_all_projects"><button>View All Project Boards</button></a>
     </aricle>
