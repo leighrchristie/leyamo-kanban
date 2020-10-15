@@ -24,6 +24,10 @@ app.get('/', (req, res) => {
     res.render('landing_page')
 })
 
+app.get('/view_all_projects', (req, res) => {
+    res.render('all_project_boards')
+})
+
 app.listen(3001, async () => {
     await sequelize.sync()
     console.log('web server running')
