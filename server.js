@@ -40,6 +40,11 @@ app.post('/add_user', async (req, res) => {
     res.redirect('/')
 })
 
+app.post('/new_project_board', async (req, res) => {
+    await Project.create(req.body)
+    res.redirect('project_board')
+})
+
 
 // SERVER LOCATION
 app.listen(3001, async () => {
