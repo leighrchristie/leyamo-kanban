@@ -1,3 +1,10 @@
 <main>
-    <div><h1>Add Collaborators</h1></div>
+    <div>
+        <label for="collaborators">Choose collaborators:</label>
+        <select name="collaborators" id="collaborators" multiple>
+            {{#each users}}
+            <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
 </main>
