@@ -29,9 +29,16 @@ app.get('/project_board/:id', async (req, res) => {
     res.render('project_board', {project})
 })
 
-app.get('/project_board/:id/add_task', async (req, res) => {
+//ISSUES HERE
+app.get('/project_board/:id/add-task', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
     res.render('add_task', {project})
+})
+
+//ISSUES HERE
+app.get('/project_board/:id/add-collaborator', async (req, res) => {
+    const project = await Project.findByPk(req.params.id)
+    res.render('add_collaborator', {project})
 })
 
 
@@ -46,6 +53,10 @@ app.post('/new_project_board', async (req, res) => {
     res.redirect(`/project_board/${project.id}`)
 })
 
+app.post('/new_project_board', async (req, res) => {
+    const project = await Project.create(req.body)
+    res.redirect(`/project_board/${project.id}`)
+})
 
 // SERVER LOCATION
 app.listen(3001, async () => {
