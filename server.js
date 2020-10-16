@@ -21,13 +21,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/view_all_projects', async (req, res) => {
-    const projects = await Project.findAll()
+    const projects = await Project.findAll({
+        include: [{model: Task, as: "tasks"}]
+    })
     res.render('all_project_boards', {projects})
 })
 
 app.get('/project_board/:id', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
-    res.render('project_board', {project})
+    const tasks = await Task.findAll({
+        where: {
+            ProjectId : req.params.id
+        }
+    })
+    res.render('project_board', {project, tasks})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
@@ -40,7 +47,6 @@ app.get('/project_board/:id/add_collaborator', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
     res.render('add_collaborator', {users, project})
 })
-
 
 // POST REQUESTS
 app.post('/add_user', async (req, res) => {
@@ -58,7 +64,6 @@ app.post('/project_board/:id/add_task', async (req, res) => {
     console.log(req.body)
     res.redirect(`/project_board/${req.params.id}`)
 })
-
 
 // SERVER LOCATION
 app.listen(3001, async () => {

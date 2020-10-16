@@ -21,7 +21,7 @@ Task.init({
     name: DataTypes.STRING
 }, {sequelize})
 
-Project.hasMany(Task)
+Project.hasMany(Task, {as: 'tasks'})
 User.hasMany(Task)
 Task.belongsTo(User)
 
