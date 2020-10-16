@@ -26,7 +26,6 @@ app.get('/view_all_projects', (req, res) => {
 
 app.get('/project_board/:id', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
-    console.log(project)
     res.render('project_board', {project})
 })
 
@@ -45,11 +44,6 @@ app.get('/project_board/:id/add_collaborator', async (req, res) => {
 app.post('/add_user', async (req, res) => {
     await User.create(req.body)
     res.redirect('/')
-})
-
-app.post('/new_project_board', async (req, res) => {
-    const project = await Project.create(req.body)
-    res.redirect(`/project_board/${project.id}`)
 })
 
 app.post('/new_project_board', async (req, res) => {
