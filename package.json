@@ -1,7 +1,6 @@
 {
   "name": "kanban",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "start": "nodemon server.js",
@@ -17,5 +16,14 @@
     "nodemon": "^2.0.5",
     "sequelize": "^6.3.5",
     "sqlite3": "^5.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yvlnv/wh-kanban_board_group_project.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yvlnv/wh-kanban_board_group_project/issues"
+  },
+  "homepage": "https://github.com/yvlnv/wh-kanban_board_group_project#readme",
+  "description": ""
 }
