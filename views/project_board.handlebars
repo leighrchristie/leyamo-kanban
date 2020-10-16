@@ -1,5 +1,13 @@
 <main>
-    <div><h1>{{project.name}}</h1></div>
+    <header>
+        <h1>{{project.name}}</h1>
+    </header>
     <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
     <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
+    <section>
+        <h1>Project Tasks</h1>
+        {{#each tasks}}
+        <h3>{{this.name}}</h3>
+        {{/each}}
+    </section>
 </main>
