@@ -5,13 +5,13 @@
 }
 
 body {
-    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-* {
-    box-sizing: border-box;
-}
+  }
 
 hr {
     border: 1px solid white;
@@ -69,5 +69,16 @@ input[type=text],input[type=url]{
     border-radius: 4px;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
- 
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 0;
+    overflow: hidden;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        var(--primary-color),
+        transparent
+      )
+}
