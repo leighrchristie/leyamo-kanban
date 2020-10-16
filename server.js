@@ -20,8 +20,9 @@ app.get('/', (req, res) => {
     res.render('landing_page')
 })
 
-app.get('/view_all_projects', (req, res) => {
-    res.render('all_project_boards')
+app.get('/view_all_projects', async (req, res) => {
+    const projects = await Project.findAll()
+    res.render('all_project_boards', {projects})
 })
 
 app.get('/project_board/:id', async (req, res) => {
