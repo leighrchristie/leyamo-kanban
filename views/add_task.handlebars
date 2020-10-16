@@ -1,11 +1,12 @@
 <main>
     <div>
-        <h1>Add Task</h1>
+        <h1>Add Task to {{project.name}}</h1>
     </div>
     <form action='/project_board/{{project.id}}/add_task' method="POST">
         <label>Task Name/Description</label>
         <input name="name" type="text" placeholder="description" maxlength="200" minlength="3" required/>
         <input name="ProjectId" type="hidden" value="{{project.id}}" />
-        <button>Add task to {{project.name}}</button>
+        <button>Add task</button>
     </form>
+    <a href="/project_board/{{project.id}}"><button>Cancel</button></a>
 </main>
