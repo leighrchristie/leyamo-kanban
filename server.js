@@ -20,8 +20,9 @@ app.get('/', (req, res) => {
     res.render('landing_page')
 })
 
-app.get('/view_all_projects', (req, res) => {
-    res.render('all_project_boards')
+app.get('/view_all_projects', async (req, res) => {
+    const projects = await Project.findAll()
+    res.render('all_project_boards', {projects})
 })
 
 app.get('/project_board/:id', async (req, res) => {
@@ -32,6 +33,11 @@ app.get('/project_board/:id', async (req, res) => {
 app.get('/project_board/:id/add_task', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
     res.render('add_task', {project})
+})
+
+app.get('/project_board/:id/add_collaborator', async (req, res) => {
+    const users = await User.findAll()
+    res.render('add_collaborator', {users})
 })
 
 
@@ -46,7 +52,15 @@ app.post('/new_project_board', async (req, res) => {
     res.redirect(`/project_board/${project.id}`)
 })
 
+<<<<<<< HEAD
+app.post('/project_board/:id/add_task', async (req, res) => {
+    await Task.create(req.body)
+    console.log(req.body)
+    res.redirect(`/project_board/${req.params.id}`)
+})
 
+=======
+>>>>>>> a7a2a96c237cf4657f8d4b3394ee6afffdf77515
 // SERVER LOCATION
 app.listen(3001, async () => {
     await sequelize.sync()

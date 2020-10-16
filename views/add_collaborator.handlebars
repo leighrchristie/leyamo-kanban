@@ -1,0 +1,11 @@
+<main>
+    <div>
+        <label for="collaborators">Choose collaborators:</label>
+        <select name="collaborators" id="collaborators" multiple>
+            {{#each users}}
+            <option value="{{this.name}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+    </div>
+    <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
+</main>
