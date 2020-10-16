@@ -34,6 +34,11 @@ app.get('/project_board/:id/add_task', async (req, res) => {
     res.render('add_task', {project})
 })
 
+app.get('/project_board/:id/add_collaborator', async (req, res) => {
+    const project = await Project.findByPk(req.params.id)
+    res.render('add_collaborator', {project})
+})
+
 
 // POST REQUESTS
 app.post('/add_user', async (req, res) => {
@@ -45,7 +50,6 @@ app.post('/new_project_board', async (req, res) => {
     const project = await Project.create(req.body)
     res.redirect(`/project_board/${project.id}`)
 })
-
 
 // SERVER LOCATION
 app.listen(3001, async () => {
