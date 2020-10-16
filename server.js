@@ -24,8 +24,9 @@ app.get('/view_all_projects', (req, res) => {
     res.render('all_project_boards')
 })
 
-app.get('/project_board', (req, res) => {
-    res.render('project_board')
+app.get('/project_board/:id', async (req, res) => {
+    const project = await Project.findByPk(req.params.id)
+    res.render('project_board', {project})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
@@ -41,8 +42,8 @@ app.post('/add_user', async (req, res) => {
 })
 
 app.post('/new_project_board', async (req, res) => {
-    await Project.create(req.body)
-    res.redirect('project_board')
+    const project = await Project.create(req.body)
+    res.redirect(`/project_board/${project.id}`)
 })
 
 
