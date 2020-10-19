@@ -1,29 +1,34 @@
-<head>
-    <script src="https://unpkg.com/apprun/dist/apprun-html.js"></script>
+<head>	
+    <script src="https://unpkg.com/apprun/dist/apprun-html.js"></script>	
 </head>
 <main>
     <header>
         <h1>{{project.name}}</h1>
     </header>
-    <hr>
-    <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
-    <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
     <section>
-        <h2>People on the project:</h2>
-        {{#each users}}
-        {{this.name}}
-        <br>
-        {{/each}}
+        <hr>
+        <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
+        <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
+        <section>
+            <h2>People on the project:</h2>
+            {{#each users}}
+            {{this.name}}
+            <br>
+            {{/each}}
+        </section>
+        <hr>
+        <section>
+            <h1>Project Tasks</h1>
+            {{#each tasks}}
+            <h3>{{this.name}}</h3>
+            <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
+                <button>✏️</button>
+            </form>
+            {{/each}}
+        </section>
     </section>
-    <hr>
-    <section>
-        <h1>Project Tasks</h1>
-        {{#each tasks}}
-        <h3>{{this.name}}</h3>
-        {{/each}}
-    </section>
-    <section>
-        <main id="todoApp"></main>
-        <script src="/project_board.js"></script>
+    <section>	
+        <main id="todoApp"></main>	
+        <script src="/project_board.js"></script>	
     </section>
 </main>
