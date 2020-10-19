@@ -91,17 +91,29 @@ input[type=text],input[type=url]{
 
 .ProjectsList {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: auto auto auto auto;
     grid-template-rows: none;
     padding: 3rem;
     gap: 3rem;
 }
 
 .ProjectCard {
-    background-color: aqua;
+    background-color: rgb(214, 247, 187);
     height: 180px;
     width: 250px;
     display: flex;
+    text-align: center;
     justify-content: center;
     align-items: center;
+    text-decoration: none;
+    color: black;
+    border-width: 10px;
+    border-top-style: solid;
+    border-top-color: rgb(141, 209, 86);
+    border-radius: 5px;
+}
+
+.ProjectCard:hover{
+    box-shadow : 0 8px 16px 0 black, 
+             0 6px 20px  0 rgba(0, 0, 0, 0.1); 
 }
