@@ -5,12 +5,15 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.lp-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 hr {
