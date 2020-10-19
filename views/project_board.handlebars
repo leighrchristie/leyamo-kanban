@@ -1,10 +1,80 @@
+<head>
+    <style>
+        label {
+      padding: 12px 12px 12px 0;
+      display: inline-block;
+    }
+    .task{
+     border-radius: 5px;
+     background-color: #e6b2b2;
+     padding: 20px;
+     text-align: center;
+ 
+     box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+     0 1px 1px rgba(128, 128, 128, 0.155),
+     0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+     0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+     0 12px 12px rgba(128, 128, 128, 0.35);
+}
+      
+    .project_task {
+      padding: 20px;
+      text-align: center;
+      background-color: rgb(255, 255, 255);
+      background-image: linear-gradient(#e6b2b2,rgb(247, 246, 187),rgb(247, 246, 187),rgb(214, 247, 187),rgb(214, 247, 187), white);
+      color: black;
+      font-size: 30px;
+      position: fixed;
+      top: 6.5%;
+      left: -3%;
+      width: 100%;
+    }
+    .project_buttons{
+     border-radius: 5px;
+     background-color: rgb(214, 247, 187);
+     padding: 20px;
+     text-align: center;
+
+     box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+     0 1px 1px rgba(128, 128, 128, 0.155),
+     0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+     0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+     0 12px 12px rgba(128, 128, 128, 0.35);
+    }
+    .people_project{
+     border-radius: 5px;
+     background-color: rgb(247, 246, 187);
+     padding: 20px;
+     text-align: center;
+
+      box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+     0 1px 1px rgba(128, 128, 128, 0.155),
+     0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+     0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+     0 12px 12px rgba(128, 128, 128, 0.35);
+}
+
+    </style>
+</head>
 <main>
-    <header>
+    <header class="project_task">
         <h1>{{project.name}}</h1>
     </header>
-    <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
-    <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
-    <section>
+    <hr>
+    <form class="project_buttons">
+         <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
+         <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
+    </form>
+   
+    <section class="people_project">
+        <h2>People on the project:</h2>
+        {{#each users}}
+        {{this.name}}
+        <br>
+        {{/each}}
+    </section>
+    <hr>
+    <section class="tasks">
         <h1>Project Tasks</h1>
         {{#each tasks}}
         <h3>{{this.name}}</h3>
