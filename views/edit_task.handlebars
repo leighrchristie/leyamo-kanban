@@ -12,9 +12,35 @@
       left: -3%;
       width: 100%;
     }
+       .task_name{
+     border-radius: 5px;
+     background-color: rgb(247, 246, 187);
+     padding: 20px;
+     text-align: center;
+
+      box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+     0 1px 1px rgba(128, 128, 128, 0.155),
+     0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+     0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+     0 12px 12px rgba(128, 128, 128, 0.35);
+    }
 
     </style>
 </head>
 <main>
     <div class="edit_task"><h1>Edit Task</h1></div>
+
+    <form class="task_name" action="/project_board" method="POST">
+            <label>Task Name</label>
+            <input name="name" type="text" placeholder="Task Name" required/>
+            <br>
+            <button>Submit</button>
+            <br>
+            <label>Cancel</label>
+            <br>
+            <button><a href="/view_all_projects">View All</a></button>
+            <br>
+          </form>
+
+          </form>
 </main>

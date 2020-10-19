@@ -4,7 +4,7 @@
       padding: 12px 12px 12px 0;
       display: inline-block;
     }
-    .task{
+    .ptasks{
      border-radius: 5px;
      background-color: #e6b2b2;
      padding: 20px;
@@ -15,7 +15,7 @@
      0 2.1px 2.1px rgba(128, 128, 128, 0.195),
      0 4.4px 4.4px rgba(128, 128, 128, 0.241),
      0 12px 12px rgba(128, 128, 128, 0.35);
-}
+    }
       
     .project_task {
       padding: 20px;
@@ -65,6 +65,7 @@
          <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
          <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
     </form>
+    <br>
    
     <section class="people_project">
         <h2>People on the project:</h2>
@@ -73,8 +74,9 @@
         <br>
         {{/each}}
     </section>
+
     <hr>
-    <section class="tasks">
+    <section class="ptasks">
         <h1>Project Tasks</h1>
         {{#each tasks}}
         <h3>{{this.name}}</h3>
