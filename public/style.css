@@ -18,11 +18,13 @@ hr {
 }
 
 nav {
-    background-color: #fdfd96;
+    background-color: #e6b2b2;
     padding: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: fixed top 0%;
-    float: left;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
 nav a {
     color: black;
