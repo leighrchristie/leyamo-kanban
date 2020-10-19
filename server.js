@@ -78,4 +78,3 @@ app.listen(3001, async () => {
     await sequelize.sync()
     console.log('web server running')
 })
-

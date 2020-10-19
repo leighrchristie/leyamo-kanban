@@ -12,6 +12,7 @@ body {
     background: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 hr {
     border: 1px solid white;
     margin-bottom: 25px;
@@ -35,7 +36,6 @@ nav a:hover {
     background-color: white;
 }
 
-  
 button {  
     color:black;  
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -44,14 +44,34 @@ button {
     border:5px black double;
     padding: 5px;
     cursor: pointer;
- }  
- button:hover{
+} 
+
+button:hover{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.19); 
 }
  
+nav {
+    background-color: #fdfd96;
+    padding: 1rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
 
+nav a {
+    color: black;
+    display: block;
+    padding: 4px 6px;
+}
 
+nav a:hover {
+    background-color: white;
+
+}
+ 
 div {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -74,4 +94,45 @@ input[type=text],input[type=url]{
     border-radius: 4px;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.btn {
+    padding: 8px 20px;
+    border-radius: 0;
+    overflow: hidden;
+      background: linear-gradient(
+        120deg,
+        transparent,
+        var(--primary-color),
+        transparent
+      )
+}
+
+.ProjectsList {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: none;
+    padding: 3rem;
+    gap: 3rem;
+}
+
+.ProjectCard {
+    background-color: rgb(214, 247, 187);
+    height: 180px;
+    width: 250px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    border-width: 10px;
+    border-top-style: solid;
+    border-top-color: rgb(141, 209, 86);
+    border-radius: 5px;
+}
+
+.ProjectCard:hover{
+    box-shadow : 0 8px 16px 0 black, 
+             0 6px 20px  0 rgba(0, 0, 0, 0.1); 
 }
