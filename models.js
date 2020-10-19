@@ -24,6 +24,9 @@ Task.init({
 Project.hasMany(Task, {as: 'tasks'})
 User.hasMany(Task)
 Task.belongsTo(User)
+UserProject = sequelize.define('user_project')
+User.belongsToMany(Project, { through: UserProject })
+Project.belongsToMany(User, { through: UserProject })
 
 module.exports = {
     User,

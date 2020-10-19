@@ -2,8 +2,17 @@
     <header>
         <h1>{{project.name}}</h1>
     </header>
+    <hr>
     <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
     <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
+    <section>
+        <h2>People on the project:</h2>
+        {{#each users}}
+        {{this.name}}
+        <br>
+        {{/each}}
+    </section>
+    <hr>
     <section>
         <h1>Project Tasks</h1>
         {{#each tasks}}

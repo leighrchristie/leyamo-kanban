@@ -34,7 +34,8 @@ app.get('/project_board/:id', async (req, res) => {
             ProjectId : req.params.id
         }
     })
-    res.render('project_board', {project, tasks})
+    const users = await project.getUsers()
+    res.render('project_board', {project, tasks, users})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
@@ -61,8 +62,17 @@ app.post('/new_project_board', async (req, res) => {
 
 app.post('/project_board/:id/add_task', async (req, res) => {
     await Task.create(req.body)
-    console.log(req.body)
     res.redirect(`/project_board/${req.params.id}`)
+})
+
+		
+app.post('/project_board/:id/add_collaborator', async (req, res) => {	
+    const project = await Project.findByPk(req.params.id)	
+    // This should be done without for to speed it up	
+    for (user_id of req.body.collaborators) {
+        await project.addUsers(Number(user_id))	
+    }	
+    res.redirect(`/project_board/${req.params.id}`)	
 })
 
 // SERVER LOCATION
