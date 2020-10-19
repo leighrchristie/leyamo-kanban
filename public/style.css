@@ -12,10 +12,7 @@ body {
     background: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-<<<<<<< HEAD
 
-=======
->>>>>>> 2f03b0047982c9f8c775af79603c21dde05058e0
 hr {
     border: 1px solid white;
     margin-bottom: 25px;
@@ -53,7 +50,6 @@ button {
 button:hover{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.19); 
-<<<<<<< HEAD
 }
  
 nav {
@@ -74,12 +70,9 @@ nav a {
 
 nav a:hover {
     background-color: white;
-=======
->>>>>>> 2f03b0047982c9f8c775af79603c21dde05058e0
+
 }
  
-
-
 div {
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -103,7 +96,6 @@ input[type=text],input[type=url]{
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-<<<<<<< HEAD
 
 .btn {
     padding: 8px 20px;
@@ -145,5 +137,3 @@ input[type=text],input[type=url]{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.1); 
 }
-=======
->>>>>>> 2f03b0047982c9f8c775af79603c21dde05058e0
