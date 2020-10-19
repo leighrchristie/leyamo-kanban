@@ -27,7 +27,8 @@ app.get('/view_all_projects', async (req, res) => {
 
 app.get('/project_board/:id', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
-    res.render('project_board', {project})
+    const users = await project.getUsers()
+    res.render('project_board', {project, users})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
@@ -55,7 +56,22 @@ app.post('/new_project_board', async (req, res) => {
 
 app.post('/project_board/:id/add_task', async (req, res) => {
     await Task.create(req.body)
-    console.log(req.body)
+    res.redirect(`/project_board/${req.params.id}`)
+})
+
+app.post('/project_board/:id/add_collaborator', async (req, res) => {
+    console.log("========")
+    console.log(req.body.collaborators)
+    console.log("========")
+    const project = await Project.findByPk(req.params.id)
+    console.log("========")
+    console.log(project)
+    console.log("========")
+    // This should be done without for to speed it up
+    for (user_id of req.body.collaborators) {
+        console.log(`adding ${user_id} to ${project.id}`)
+        await project.addUsers(Number(user_id))
+    }
     res.redirect(`/project_board/${req.params.id}`)
 })
 
