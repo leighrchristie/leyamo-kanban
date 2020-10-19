@@ -48,15 +48,15 @@ nav a:hover {
 }
 
 div {
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  width: 300px;
-  border: 15px;
-  padding: 50px;
-  margin: 20px;
-  text-decoration: underline;
-  text-decoration-color: black;
-  display: inline;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    width: 300px;
+    border: 15px;
+    padding: 50px;
+    margin: 20px;
+    text-decoration: underline;
+    text-decoration-color: black;
+    display: inline;
   
 }
 
@@ -81,4 +81,33 @@ input[type=text],input[type=url]{
         var(--primary-color),
         transparent
       )
+}
+
+section {
+    padding: 1rem;
+    margin: 1rem;
+    color: rgb(94, 92, 92);
+    min-height: 100px;
+    border-radius: 4px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.todosection {
+    background-color: lightpink;
+}
+
+.doingsection {
+    background-color: lightyellow;
+}
+
+.donesection {
+    background-color: lightgreen;
+}
+
+.deletesection {
+    background-color: lightgrey;
+}
+
+ul {
+    list-style: none;
 }

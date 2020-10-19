@@ -18,7 +18,10 @@ Project.init({
 
 class Task extends Model {}
 Task.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    state: {
+        type: DataTypes.INTEGER, 
+        defaultValue: 0}
 }, {sequelize})
 
 Project.hasMany(Task, {as: 'tasks'})
