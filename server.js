@@ -21,14 +21,21 @@ app.get('/', (req, res) => {
 })
 
 app.get('/view_all_projects', async (req, res) => {
-    const projects = await Project.findAll()
+    const projects = await Project.findAll({
+        include: [{model: Task, as: "tasks"}]
+    })
     res.render('all_project_boards', {projects})
 })
 
 app.get('/project_board/:id', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
+    const tasks = await Task.findAll({
+        where: {
+            ProjectId : req.params.id
+        }
+    })
     const users = await project.getUsers()
-    res.render('project_board', {project, users})
+    res.render('project_board', {project, tasks, users})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
@@ -41,7 +48,6 @@ app.get('/project_board/:id/add_collaborator', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
     res.render('add_collaborator', {users, project})
 })
-
 
 // POST REQUESTS
 app.post('/add_user', async (req, res) => {
@@ -59,22 +65,15 @@ app.post('/project_board/:id/add_task', async (req, res) => {
     res.redirect(`/project_board/${req.params.id}`)
 })
 
-app.post('/project_board/:id/add_collaborator', async (req, res) => {
-    console.log("========")
-    console.log(req.body.collaborators)
-    console.log("========")
-    const project = await Project.findByPk(req.params.id)
-    console.log("========")
-    console.log(project)
-    console.log("========")
-    // This should be done without for to speed it up
+		
+app.post('/project_board/:id/add_collaborator', async (req, res) => {	
+    const project = await Project.findByPk(req.params.id)	
+    // This should be done without for to speed it up	
     for (user_id of req.body.collaborators) {
-        console.log(`adding ${user_id} to ${project.id}`)
-        await project.addUsers(Number(user_id))
-    }
-    res.redirect(`/project_board/${req.params.id}`)
+        await project.addUsers(Number(user_id))	
+    }	
+    res.redirect(`/project_board/${req.params.id}`)	
 })
-
 
 // SERVER LOCATION
 app.listen(3001, async () => {

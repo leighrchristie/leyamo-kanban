@@ -1,4 +1,24 @@
-<main>
+<head>
+ <style>
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
+.add_user{
+  border-radius: 5px;
+  background-color: #e6b2b2;
+  padding: 20px;
+}
+.new_project_board{
+  border-radius: 5px;
+  background-color: rgb(214, 247, 187);
+  padding: 20px;
+}
+
+ </style>
+</head>
+<body>
+    <main>
     <div><h1>Welcome to Leyamo Kanban</h1></div>
     <aricle>
         <form action="/add_user" method="POST">
@@ -9,13 +29,17 @@
             <input name="image" type="url" placeholder="Image URL" required/>
             <br>
             <button>Submit</button>
+            <br>
         </form>
-        <form action="/new_project_board" method="POST">
+      
+        <form class="new_project_board" method="POST">
             <label>Create a new project board</label>
             <input name="name" type="text" placeholder="Project board's name" required/>
             <br>
             <button>Submit</button>
+            <br>
         </form>
         <a href="/view_all_projects"><button>View All Project Boards</button></a>
     </aricle>
 </main>
+</body>
