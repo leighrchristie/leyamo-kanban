@@ -1,7 +1,7 @@
 <main>
     <form action="/project_board/{{project.id}}/add_collaborator" method="POST">
         <label for="collaborators">Choose collaborators:</label>
-        <select name="collaborators[]" id="collaborators" multiple>
+        <select name="collaborators" id="collaborators" multiple>
             {{#each users}}
             <option value="{{this.id}}">{{this.name}}</option>
             {{/each}}
@@ -10,5 +10,5 @@
         <input type="submit" value="Submit">
     </form>
     <p>Hold down the Ctrl (windows) or Command (Mac) button to select multiple options.</p>
-    <a href="/project_board/{{project.id}}"><button>Add Task</button></a>
+    <a href="/project_board/{{project.id}}"><button>Cancel</button></a>
 </main>
