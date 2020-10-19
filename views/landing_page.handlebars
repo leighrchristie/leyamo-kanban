@@ -62,19 +62,18 @@ label {
     <div class="welcome">
       <h1>Welcome to Leyamo Kanban</h1>
     </div>
-    
-    <article>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
 
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <article>
         <form class="add_user" action="/add_user" method="POST">
             <label>Create a new user</label>
             <input name="name" type="text" placeholder="User's name" required/>
@@ -87,6 +86,7 @@ label {
         </form>
            <br>
 
+
         <form class="new_project_board" action="/new_project_board" method="POST">
             <label>Create a new project board</label>
             <input name="name" type="text" placeholder="Project board's name" required/>
@@ -96,17 +96,14 @@ label {
           </form>
             <br>
 
-         <form class="project_button"
-           <a href="/view_all_projects">
+         <form class="project_button">
             <label>Already have a Project Board?</label>
             <br>
-            <button>View All Project Boards</button>
+            <button><a href="/view_all_projects">View All</a></button>
             <br>
           </form>
             <br>
-    
-
-        
+   
     </article>
 </main>
 </body>
