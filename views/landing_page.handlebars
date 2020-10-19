@@ -1,27 +1,82 @@
 <head>
  <style>
+
 label {
   padding: 12px 12px 12px 0;
   display: inline-block;
+}
+.welcome {
+  padding: 20px;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+  background-image: linear-gradient(#e6b2b2,rgb(247, 246, 187),rgb(247, 246, 187),rgb(214, 247, 187),rgb(214, 247, 187), white);
+  color: black;
+  font-size: 30px;
+  position: fixed;
+  top: 6.5%;
+  left: -4%;
+  width: 100%;
 }
 .add_user{
   border-radius: 5px;
   background-color: #e6b2b2;
   padding: 20px;
+  text-align: center;
+ 
+
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
 }
 .new_project_board{
   border-radius: 5px;
+  background-color: rgb(247, 246, 187);
+  padding: 20px;
+  text-align: center;
+
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
+}
+.project_button{
+  border-radius: 5px;
   background-color: rgb(214, 247, 187);
   padding: 20px;
-}
+  text-align: center;
 
- </style>
+  box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
+}}
+
+</style>
 </head>
+
 <body>
     <main>
-    <div><h1>Welcome to Leyamo Kanban</h1></div>
+    <div class="welcome">
+      <h1>Welcome to Leyamo Kanban</h1>
+    </div>
+   
     <aricle>
-        <form action="/add_user" method="POST">
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+
+        <form class="add_user" action="/add_user" method="POST">
             <label>Create a new user</label>
             <input name="name" type="text" placeholder="User's name" required/>
             <br>
@@ -31,15 +86,30 @@ label {
             <button>Submit</button>
             <br>
         </form>
+
+           <br>
+           
+          <form class="new_project_board"action="/new_project_board" method="POST">
+
       
         <form class="new_project_board" action="/new_project_board" method="POST">
+
             <label>Create a new project board</label>
             <input name="name" type="text" placeholder="Project board's name" required/>
             <br>
             <button>Submit</button>
             <br>
-        </form>
-        <a href="/view_all_projects"><button>View All Project Boards</button></a>
-    </aricle>
+          </form>
+            <br>
+
+         <form class="project_button">
+            <label>Already have a Project Board?</label>
+            <br>
+            <button><a href="/view_all_projects">View All</a></button>
+            <br>
+          </form>
+            <br>
+   
+    </article>
 </main>
 </body>

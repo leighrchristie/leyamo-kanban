@@ -34,8 +34,7 @@ app.get('/project_board/:id', async (req, res) => {
             ProjectId : req.params.id
         }
     })
-    const users = await project.getUsers()
-    res.render('project_board', {project, tasks, users})
+    res.render('project_board', {project, tasks})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
@@ -64,7 +63,6 @@ app.post('/project_board/:id/add_task', async (req, res) => {
     await Task.create(req.body)
     res.redirect(`/project_board/${req.params.id}`)
 })
-
 		
 app.post('/project_board/:id/add_collaborator', async (req, res) => {	
     const project = await Project.findByPk(req.params.id)	
