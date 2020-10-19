@@ -48,12 +48,6 @@ app.get('/project_board/:id/edit_task/:tasks_id', async (req, res) => {
     res.render('edit_task', {project, task})
 })
 
-
-//app.get('/edit_task/:id', async (req, res) => {
-   // const task = await Task.findByPk(req.params.id)
-   // res.render('edit_task', {task})
-//})
-
 app.get('/project_board/:id/add_collaborator', async (req, res) => {
     const users = await User.findAll()
     const project = await Project.findByPk(req.params.id)
