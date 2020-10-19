@@ -1,9 +1,9 @@
 <main>
     <div><h1>All Project Boards</h1></div>
-    <section>
+    <section class="ProjectsList">
         {{#each projects}}
         <a href="/project_board/{{this.id}}">
-        <div><h2>{{this.name}}</h2></div>
+        <h2 class="ProjectCard">{{this.name}}</h2>
         {{/each}}
     </section>
 </main>

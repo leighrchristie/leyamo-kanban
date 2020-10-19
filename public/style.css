@@ -11,7 +11,7 @@ body {
     min-height: 100vh;
     background: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  }
+}
 
 hr {
     border: 1px solid white;
@@ -26,23 +26,29 @@ button {
     border:5px black double;
     padding: 5px;
     cursor: pointer;
- }  
- button:hover{
+} 
+
+button:hover{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.19); 
- }
+}
  
 nav {
     background-color: #fdfd96;
     padding: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    position: sticky;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    width: 100%;
 }
+
 nav a {
     color: black;
     display: block;
     padding: 4px 6px;
 }
+
 nav a:hover {
     background-color: white;
 }
@@ -81,4 +87,21 @@ input[type=text],input[type=url]{
         var(--primary-color),
         transparent
       )
+}
+
+.ProjectsList {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: none;
+    padding: 3rem;
+    gap: 3rem;
+}
+
+.ProjectCard {
+    background-color: aqua;
+    height: 180px;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
