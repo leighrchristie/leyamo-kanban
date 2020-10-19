@@ -12,4 +12,14 @@
     <div>
         <h1 style="padding-top: 100px;">Edit Task in {{project.name}}</h1>
     </div>
+    <form action="/project_board/{{project.id}}/edit_task/{{task.id}}" method="POST">
+        <label>New name</label>
+        <input name="name" type="text" value="{{task.name}}" required/>
+        <br>
+        <label>New assignee</label>
+        <input name="assignee" type="" value=""/>
+        <br>
+        <button>Edit task</button>
+        <a href="/project_board/{{project.id}}"><button>Cancel</button></a>
+    </form>
 </body>

@@ -79,6 +79,12 @@ app.post('/project_board/:id/add_collaborator', async (req, res) => {
     res.redirect(`/project_board/${req.params.id}`)	
 })
 
+app.post('/project_board/:id/edit_task/:tasks_id', async (req, res) => {
+    const task = await Task.findByPk(req.params.tasks_id)
+    task.update(req.body)
+    res.redirect(`/project_board/${req.params.id}`)
+})
+
 // SERVER LOCATION
 app.listen(3001, async () => {
     await sequelize.sync()
