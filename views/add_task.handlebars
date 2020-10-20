@@ -12,13 +12,20 @@
     <div>
         <h1>Add Task to {{project.name}}</h1>
     </div>
-    <form class="project_board"
-    action='/project_board/{{project.id}}/add_task' method="POST">
+    <form class="project_board" action='/project_board/{{project.id}}/add_task' method="POST">
         <label>Task Name/Description</label>
         <input name="name" type="text" placeholder="description" maxlength="200" minlength="3" required/>
         <input name="ProjectId" type="hidden" value="{{project.id}}" />
+        <label for="assignee">Assignee</label>
+        <select name="assignee" id="assignee">
+            <option value="unassigned">unassigned</option>
+            {{#each users}}
+            <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
+        <br>
         <button>Add task</button>
+        <a href="/project_board/{{project.id}}"><button>Cancel</button></a>
     </form>
-    <a href="/project_board/{{project.id}}"><button>Cancel</button></a>
 </main>
 </body>

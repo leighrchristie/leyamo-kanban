@@ -35,18 +35,20 @@ app.get('/project_board/:id', async (req, res) => {
             ProjectId : req.params.id
         }
     })
-    res.render('project_board', {project, tasks, users})
+    res.render('project_board', {project, users, tasks})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
-    res.render('add_task', {project})
+    users = await project.getUsers()
+    res.render('add_task', {project, users})
 })
 
 app.get('/project_board/:id/edit_task/:tasks_id', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
     const task = await Task.findByPk(req.params.tasks_id)
-    res.render('edit_task', {project, task})
+    const users = await project.getUsers()
+    res.render('edit_task', {project, task, users})
 })
 
 app.get('/project_board/:id/add_collaborator', async (req, res) => {
