@@ -15,8 +15,6 @@ app.engine('handlebars', handlebars)
 app.set('view engine', 'handlebars')
 
 
-// const tasks = []
-
 
 // GET REQUESTS
 app.get('/', (req, res) => {
@@ -80,7 +78,7 @@ app.post('/new_project_board', async (req, res) => {
     res.redirect(`/project_board/${project.id}`)
 })
 
-app.post('/project_board/add_task', async (req, res) => {
+app.post('/project_board/:id/add_task', async (req, res) => {
     await Task.create(req.body)
     res.redirect(`/project_board/${req.params.id}`)
 })

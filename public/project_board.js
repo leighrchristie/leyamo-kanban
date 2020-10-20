@@ -105,6 +105,7 @@ const update = {
         }
     },
     getTasks: async (state) => {
+        // either add more arrays or replace with 'state.tasks' for doing and done persistence
         state.todo = await fetch('/tasks/' + getProjectId()).then(res => res.json())
         return state
     },
