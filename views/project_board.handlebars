@@ -1,100 +1,45 @@
+
 <head>
     <style>
-        label {
-      padding: 12px 12px 12px 0;
-      display: inline-block;
-    }
-    .ptasks{
-     border-radius: 5px;
-     background-color: #e6b2b2;
-     padding: 20px;
-     text-align: center;
- 
-     box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
-     0 1px 1px rgba(128, 128, 128, 0.155),
-     0 2.1px 2.1px rgba(128, 128, 128, 0.195),
-     0 4.4px 4.4px rgba(128, 128, 128, 0.241),
-     0 12px 12px rgba(128, 128, 128, 0.35);
-    }
-      
-    .project_task {
-      padding: 20px;
-      text-align: center;
-      background-color: rgb(255, 255, 255);
-      background-image: linear-gradient(#e6b2b2,rgb(247, 246, 187),rgb(247, 246, 187),rgb(214, 247, 187),rgb(214, 247, 187), white);
-      color: black;
-      font-size: 30px;
-      position: fixed;
-      top: 6.5%;
-      left: -3%;
-      width: 100%;
-    }
-
-    .project_buttons{
-     border-radius: 5px;
-     background-color: rgb(214, 247, 187);
-     padding: 20px;
-     text-align: center;
-
-     box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
-     0 1px 1px rgba(128, 128, 128, 0.155),
-     0 2.1px 2.1px rgba(128, 128, 128, 0.195),
-     0 4.4px 4.4px rgba(128, 128, 128, 0.241),
-     0 12px 12px rgba(128, 128, 128, 0.35);
-    }
-
-    .people_project{
-     border-radius: 5px;
-     background-color: rgb(247, 246, 187);
-     padding: 20px;
-     text-align: center;
-
-      box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
-     0 1px 1px rgba(128, 128, 128, 0.155),
-     0 2.1px 2.1px rgba(128, 128, 128, 0.195),
-     0 4.4px 4.4px rgba(128, 128, 128, 0.241),
-     0 12px 12px rgba(128, 128, 128, 0.35);
-    }
-
+  
     </style>
 </head>
+
+
+<head>
+    <script src="https://unpkg.com/apprun/dist/apprun-html.js"></script>
+</head>
 <main>
-    <header class="project_task">
-        <h1>{{project.name}}</h1>
-    </header>
-    <hr>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    
-    <form class="project_buttons">
-         <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
-         <br>
-         <br>
-         <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
-    </form>
-    <br>
-   
-    <section class="people_project">
-        <h2>People on the project:</h2>
-        {{#each users}}
-        {{this.name}}
-        <br>
-        {{/each}}
+    <section>
+        <section class="ProjectHeader" style="padding-top: 60px;">
+            <div class="ProjectName">
+                <h3>Project Name:</h3>
+                <h1>{{project.name}}</h1>
+            </div>
+            <div class="ProjectPeople">
+                <h3>People on the project:</h3>
+                <div class="iconalignment">
+                {{#each users}}
+                <div class="icon" style="background-image: url({{this.image}});"></div>
+                {{/each}}
+                <a href="/project_board/{{project.id}}/add_collaborator"><button class="plus-button">+</button></a>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h1 style="margin-left: 2rem;">Project Tasks</h1>
+            {{!--<a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
+            {{#each tasks}}
+            <h3>{{this.name}}</h3>
+            <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
+                <button>✏️</button>
+            </form>
+            {{/each}}--}}
+        </section>
     </section>
-    <br>
-
-    <hr>
-    <section class="ptasks">
-        <h1>Project Tasks</h1>
-        {{#each tasks}}
-        <h3>{{this.name}}</h3>
-        {{/each}}
+    <section>
+        <main id="todoApp"></main>
+        <script src="/project_board.js"></script>
     </section>
-
 </main>
+
