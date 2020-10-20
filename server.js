@@ -44,6 +44,18 @@ app.get('/project_board/:id/add_task', async (req, res) => {
     res.render('add_task', {project})
 })
 
+app.get('/project_board/:id/edit_task/:tasks_id', async (req, res) => {
+    const project = await Project.findByPk(req.params.id)
+    const task = await Task.findByPk(req.params.tasks_id)
+    res.render('edit_task', {project, task})
+})
+
+
+//app.get('/edit_task/:id', async (req, res) => {
+   // const task = await Task.findByPk(req.params.id)
+   // res.render('edit_task', {task})
+//})
+
 app.get('/project_board/:id/add_collaborator', async (req, res) => {
     const users = await User.findAll()
     const project = await Project.findByPk(req.params.id)
@@ -65,6 +77,15 @@ app.post('/project_board/:id/add_task', async (req, res) => {
     await Task.create(req.body)
     res.redirect(`/project_board/${req.params.id}`)
 })
+		
+app.post('/project_board/:id/add_collaborator', async (req, res) => {	
+    const project = await Project.findByPk(req.params.id)	
+    // This should be done without for to speed it up	
+    for (user_id of req.body.collaborators) {
+        await project.addUsers(Number(user_id))	
+    }	
+    res.redirect(`/project_board/${req.params.id}`)	
+})
 
 		
 app.post('/project_board/:id/add_collaborator', async (req, res) => {	
@@ -80,7 +101,7 @@ app.post('/project_board/:id/add_collaborator', async (req, res) => {
 app.listen(3001, async () => {
     await sequelize.sync()
     console.log('web server running')
-})
 
+})
 
 

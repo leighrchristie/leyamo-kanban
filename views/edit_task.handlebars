@@ -32,13 +32,13 @@
 
     <form class="task_name" action="/project_board" method="POST">
             <label>Task Name</label>
-            <input name="name" type="text" placeholder="Task Name" required/>
+            <input name="name" type="text" min="3" max="100" placeholder="Task Name" required/>
             <br>
             <button>Submit</button>
             <br>
             <label>Cancel</label>
             <br>
-            <button><a href="/view_all_projects">View All</a></button>
+            <button><a href="/project_board">View All</a></button>
             <br>
           </form>
 

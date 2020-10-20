@@ -5,17 +5,15 @@
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     min-height: 100vh;
     background: white;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-hr {
-    border: 1px solid white;
-    margin-bottom: 25px;
+.lp-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 nav {
@@ -50,7 +48,7 @@ button:hover{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.19); 
 }
- 
+
  
 div {
   text-align: center;
@@ -98,13 +96,16 @@ input[type=text],input[type=url]{
     border-top-style: solid;
     border-top-color: rgb(141, 209, 86);
     border-radius: 5px;
-    
+
 }
 
 .ProjectCard:hover{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.1); 
+
 }
 
+
   
-  
+
+

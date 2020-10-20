@@ -29,6 +29,7 @@
       left: -3%;
       width: 100%;
     }
+
     .project_buttons{
      border-radius: 5px;
      background-color: rgb(214, 247, 187);
@@ -41,6 +42,7 @@
      0 4.4px 4.4px rgba(128, 128, 128, 0.241),
      0 12px 12px rgba(128, 128, 128, 0.35);
     }
+
     .people_project{
      border-radius: 5px;
      background-color: rgb(247, 246, 187);
@@ -52,7 +54,7 @@
      0 2.1px 2.1px rgba(128, 128, 128, 0.195),
      0 4.4px 4.4px rgba(128, 128, 128, 0.241),
      0 12px 12px rgba(128, 128, 128, 0.35);
-}
+    }
 
     </style>
 </head>
@@ -61,8 +63,19 @@
         <h1>{{project.name}}</h1>
     </header>
     <hr>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    
     <form class="project_buttons">
          <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
+         <br>
+         <br>
          <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
     </form>
     <br>
@@ -74,6 +87,7 @@
         <br>
         {{/each}}
     </section>
+    <br>
 
     <hr>
     <section class="ptasks">
@@ -82,4 +96,5 @@
         <h3>{{this.name}}</h3>
         {{/each}}
     </section>
+
 </main>
