@@ -1,4 +1,5 @@
 <main>
+    <h1 style="padding-top: 100px;">Add Collaborator to {{project.name}}</h1>
     <form action="/project_board/{{project.id}}/add_collaborator" method="POST">
         <label for="collaborators">Choose collaborators:</label>
         <select name="collaborators" id="collaborators" multiple>
