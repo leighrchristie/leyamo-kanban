@@ -1,34 +1,36 @@
-<head>	
-    <script src="https://unpkg.com/apprun/dist/apprun-html.js"></script>	
+<head>
+    <script src="https://unpkg.com/apprun/dist/apprun-html.js"></script>
 </head>
 <main>
-    <header>
-        <h1>{{project.name}}</h1>
-    </header>
     <section>
-        <hr>
-        <a href="/project_board/{{project.id}}/add_collaborator"><button>Add Collaborator</button></a>
-        <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
-        <section>
-            <h2>People on the project:</h2>
-            {{#each users}}
-            {{this.name}}
-            <br>
-            {{/each}}
+        <section class="ProjectHeader" style="padding-top: 60px;">
+            <div class="ProjectName">
+                <h3>Project Name:</h3>
+                <h1>{{project.name}}</h1>
+            </div>
+            <div class="ProjectPeople">
+                <h3>People on the project:</h3>
+                <div class="iconalignment">
+                {{#each users}}
+                <div class="icon" style="background-image: url({{this.image}});"></div>
+                {{/each}}
+                <a href="/project_board/{{project.id}}/add_collaborator"><button class="plus-button">+</button></a>
+                </div>
+            </div>
         </section>
-        <hr>
         <section>
-            <h1>Project Tasks</h1>
+            <h1 style="margin-left: 2rem;">Project Tasks</h1>
+            {{!--<a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
             {{#each tasks}}
             <h3>{{this.name}}</h3>
             <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
                 <button>✏️</button>
             </form>
-            {{/each}}
+            {{/each}}--}}
         </section>
     </section>
-    <section>	
-        <main id="todoApp"></main>	
-        <script src="/project_board.js"></script>	
+    <section>
+        <main id="todoApp"></main>
+        <script src="/project_board.js"></script>
     </section>
 </main>
