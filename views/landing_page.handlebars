@@ -1,7 +1,4 @@
 <head>
- <style>
-
-
   <style>
     label {
       padding: 12px 12px 12px 0;
@@ -62,7 +59,6 @@
     }
     }
   </style>
-
 </head>
 
 <body class="lp-body">
@@ -83,41 +79,40 @@
       <br>
       <br>
 
+      <form class="add_user" action="/add_user" method="POST">
+        <label>Create a new user</label>
+        <input name="name" type="text" placeholder="User's name" required />
+        <br>
+        <label>Image URL</label>
+        <input name="image" type="url" placeholder="Image URL" required />
+        <br>
+        <button>Submit</button>
+        <br>
+      </form>
 
-      <article>
-        <form class="add_user" action="/add_user" method="POST">
-            <label>Create a new user</label>
-            <input name="name" type="text" placeholder="User's name" required/>
-            <br>
-            <label>Image URL</label>
-            <input name="image" type="url" placeholder="Image URL" required/>
-            <br>
-            <button>Submit</button>
-            <br>
-        </form>
-           <br>
+      <br>
+
+      <form class="new_project_board" action="/new_project_board" method="POST">
 
 
         <form class="new_project_board" action="/new_project_board" method="POST">
-            <label>Create a new project board</label>
-            <input name="name" type="text" placeholder="Project board's name" required/>
-            <br>
-            <button>Submit</button>
-            <br>
-          </form>
-          <br>
-        
 
-         <form class="project_button">
-            <label>Already have a Project Board?</label>
-            <br>
-            <button><a href="/view_all_projects">View All</a></button>
-            <br>
-          </form>
-            <br>
-   
-    </article>
-</main>
+          <label>Create a new project board</label>
+          <input name="name" type="text" placeholder="Project board's name" required />
+          <br>
+          <button>Submit</button>
+          <br>
+        </form>
+        <br>
+
+        <form class="project_button">
+          <label>Already have a Project Board?</label>
+          <br>
+          <button><a href="/view_all_projects">View All</a></button>
+          <br>
+        </form>
+        <br>
+        </article>
+  </main>
 </body>
- 
 

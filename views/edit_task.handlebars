@@ -5,7 +5,7 @@
       padding: 20px;
       text-align: center;
       background-color: rgb(255, 255, 255);
-      background-image: linear-gradient(#e6b2b2,rgb(247, 246, 187),rgb(247, 246, 187),rgb(214, 247, 187),rgb(214, 247, 187), white);
+      background-image: linear-gradient(#20a7ad,#95d3db, white);
       color: black;
       font-size: 30px;
       position: fixed;
@@ -15,7 +15,7 @@
     }
        .task_name{
      border-radius: 5px;
-     background-color: rgb(247, 246, 187);
+     background-color: #20a7ad;
      padding: 20px;
      text-align: center;
 
@@ -63,9 +63,16 @@
         <br>
         <label>New assignee</label>
         <input name="assignee" type="" value=""/>
+        <label for="assignee">New assignee</label>
+        <select name="assignee" id="assignee">
+            {{!-- <option value="{{task.assignee}}">{{task.assignee}}</option> --}}
+            <option value="unassigned">unassigned</option>
+            {{#each users}}
+            <option value="{{this.id}}">{{this.name}}</option>
+            {{/each}}
+        </select>
         <br>
         <button>Edit task</button>
         <a href="/project_board/{{project.id}}"><button>Cancel</button></a>
     </form>
 </body>
-

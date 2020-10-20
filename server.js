@@ -16,6 +16,7 @@ app.engine('handlebars', handlebars)
 app.set('view engine', 'handlebars')
 
 
+
 // GET REQUESTS
 app.get('/', (req, res) => {
     res.render('landing_page')
@@ -36,13 +37,24 @@ app.get('/project_board/:id', async (req, res) => {
             ProjectId : req.params.id
         }
     })
+
     const users = await project.getUsers()
     res.render('project_board', {project, tasks, users})
+    res.render('project_board', {project, users, tasks})
+
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
-    res.render('add_task', {project})
+    users = await project.getUsers()
+    res.render('add_task', {project, users})
+})
+
+app.get('/project_board/:id/edit_task/:tasks_id', async (req, res) => {
+    const project = await Project.findByPk(req.params.id)
+    const task = await Task.findByPk(req.params.tasks_id)
+    const users = await project.getUsers()
+    res.render('edit_task', {project, task, users})
 })
 
 app.get('/project_board/:id/edit_task/:tasks_id', async (req, res) => {
@@ -63,6 +75,15 @@ app.get('/project_board/:id/add_collaborator', async (req, res) => {
     res.render('add_collaborator', {users, project})
 })
 
+app.get('/tasks/:id', async (req, res) => {
+    const tasks = await Task.findAll({
+        where: {
+            ProjectId : req.params.id
+        }
+    })
+    res.send(tasks)
+})
+
 // POST REQUESTS
 app.post('/add_user', async (req, res) => {
     await User.create(req.body)
@@ -76,7 +97,6 @@ app.post('/new_project_board', async (req, res) => {
 
 app.post('/project_board/:id/add_task', async (req, res) => {
     await Task.create(req.body)
-
     res.redirect(`/project_board/${req.params.id}`)
 })
 		
@@ -94,7 +114,7 @@ app.post('/project_board/:id/edit_task/:tasks_id', async (req, res) => {
     task.update(req.body)
     res.redirect(`/project_board/${req.params.id}`)
 })
-		
+
 app.post('/project_board/:id/add_collaborator', async (req, res) => {	
     const project = await Project.findByPk(req.params.id)	
     // This should be done without for to speed it up	
@@ -104,14 +124,17 @@ app.post('/project_board/:id/add_collaborator', async (req, res) => {
     res.redirect(`/project_board/${req.params.id}`)	
 })
 
-		
-app.post('/project_board/:id/add_collaborator', async (req, res) => {	
-    const project = await Project.findByPk(req.params.id)	
-    // This should be done without for to speed it up	
-    for (user_id of req.body.collaborators) {
-        await project.addUsers(Number(user_id))	
-    }	
-    res.redirect(`/project_board/${req.params.id}`)	
+
+app.post('/project_board/:id/delete_task/:tasks_id', async (req, res) => {
+    const task = await Task.findByPk(req.params.tasks_id)
+    task.destroy()
+    res.redirect(`/project_board/${req.params.id}`)
+})
+
+app.post('/tasks', async (req,res) => {
+    await Task.create(req.body)
+    res.send()
+
 })
 
 // SERVER LOCATION
