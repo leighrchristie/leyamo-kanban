@@ -29,12 +29,13 @@ app.get('/view_all_projects', async (req, res) => {
 
 app.get('/project_board/:id', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
+    const users = await project.getUsers()
     const tasks = await Task.findAll({
         where: {
             ProjectId : req.params.id
         }
     })
-    res.render('project_board', {project, tasks})
+    res.render('project_board', {project, tasks, users})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
@@ -47,12 +48,6 @@ app.get('/project_board/:id/edit_task/:tasks_id', async (req, res) => {
     const task = await Task.findByPk(req.params.tasks_id)
     res.render('edit_task', {project, task})
 })
-
-
-//app.get('/edit_task/:id', async (req, res) => {
-   // const task = await Task.findByPk(req.params.id)
-   // res.render('edit_task', {task})
-//})
 
 app.get('/project_board/:id/add_collaborator', async (req, res) => {
     const users = await User.findAll()
