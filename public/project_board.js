@@ -6,32 +6,37 @@ const state = {
 
 // instead of => { return our_html }
 const view = (state) => `
-    <section class="todosection">
-        <h1>To-do</h1>
-        <div>
-            <form onsubmit="app.run('add', this);return false;">
-                <input name="task" placeholder="add a task" />
-                <button>Add</button>
-            </form>
-        </div>
-        <ul>
-            ${state.todo.map(task => `<li id="${task.id}" draggable="true" ondragstart="app.run('dragFromToDoTask', event)">${task.text}</li>`).join("")}
-        </ul>
+    <section class="ProjectColumnGrid">
+            <section class="todosection ProjectColumns">
+                <h3>To-do</h3>
+                <div>
+                ${state.todo.map(task => `<li id="${task.id}" draggable="true" ondragstart="app.run('dragFromToDoTask', event)">${task.text}</li>`).join("")}
+                </div>
+                <div class="task">
+                <form onsubmit="app.run('add', this);return false;" style="text-align: center">
+                    <input name="task" placeholder="add a task" />
+                    <button class="plus-button">+</button>
+                </form>
+                </div>
+            </section>
+
+            <section class="doingsection ProjectColumns" ondragover="event.preventDefault()" ondrop="app.run('addToDoingTask', event)">
+                <h3>Doing</h3>
+                    <ul>
+                    ${state.doing.map(task => `<li id="${task.id}" draggable="true" ondragstart="app.run('dragFromDoingTask', event)">${task.text}</li>`).join("")}
+                    </ul>
+            </section>
+
+            <section class="donesection ProjectColumns" ondragover="event.preventDefault()" ondrop="app.run('addToDoneTask', event)">
+                <h3>Done</h3>
+                <ul>
+                    ${state.done.map(task => `<li id="${task.id}" draggable="true" ondragstart="app.run('dragFromDoneTask', event)">${task.text}</li>`).join("")}
+                </ul>
+            </section>
     </section>
-    <section class="doingsection" ondragover="event.preventDefault()" ondrop="app.run('addToDoingTask', event)">
-        <h1>Doing</h1>
-        <ul>
-            ${state.doing.map(task => `<li id="${task.id}" draggable="true" ondragstart="app.run('dragFromDoingTask', event)">${task.text}</li>`).join("")}
-        </ul>
-    </section>
-    <section class="donesection" ondragover="event.preventDefault()" ondrop="app.run('addToDoneTask', event)">
-        <h1>Done</h1>
-        <ul>
-            ${state.done.map(task => `<li id="${task.id}" draggable="true" ondragstart="app.run('dragFromDoneTask', event)">${task.text}</li>`).join("")}
-        </ul>
-    </section>
+
     <section class="deletesection" ondragover="event.preventDefault()" ondrop="app.run('deleteTask', event)">
-        <h1>Delete</h1>
+        <h1>♻</h1>
     </section>
 `
 // all update func return a state

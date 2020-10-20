@@ -29,12 +29,13 @@ app.get('/view_all_projects', async (req, res) => {
 
 app.get('/project_board/:id', async (req, res) => {
     const project = await Project.findByPk(req.params.id)
+    const users = await project.getUsers()
     const tasks = await Task.findAll({
         where: {
             ProjectId : req.params.id
         }
     })
-    res.render('project_board', {project, tasks})
+    res.render('project_board', {project, tasks, users})
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
