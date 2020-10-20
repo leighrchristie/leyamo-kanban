@@ -220,6 +220,12 @@ input[type=text],input[type=url]{
     border-radius: 5px;
 }
 
+.todosection-top {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: none;
+}
+
 .doingsection {
     background-color: rgba(255, 255, 255, 0.8);
     border-top-color: rgb(247, 246, 187);

@@ -23,7 +23,10 @@ const view = (state) => `
                 </div>
                 <div>
                     <ul>
-                    ${state.todo.map(task => `<li id="${task.id}" draggable="true" ondragstart="app.run('dragFromToDoTask', event)">${task.name}</li>`).join("")}
+                    ${state.todo.map(task => 
+                        `<li id="${task.id}" draggable="true" ondragstart="app.run('dragFromToDoTask', event)">${task.name}</li>
+                        <button onsubmit="app.run('edit', this);return false;">✏️</button>`
+                    ).join("")}
                     </ul>
                 </div>
             </section>
