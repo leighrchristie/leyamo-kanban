@@ -261,3 +261,31 @@ input[type=text],input[type=url]{
 ul {
     list-style: none;
 }
+
+.edit_task {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(#20a7ad,#95d3db, white);
+    color: black;
+    font-size: 30px;
+    position: fixed;
+    top: 6.5%;
+    left: -3%;
+    width: 100%;
+}
+  
+.task_name{
+   border-radius: 5px;
+   background-color: #20a7ad;
+   padding: 20px;
+   text-align: center;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+   0 1px 1px rgba(128, 128, 128, 0.155),
+   0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+   0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+   0 12px 12px rgba(128, 128, 128, 0.35);
+}
+
+
+
