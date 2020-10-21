@@ -110,9 +110,14 @@ app.post('/tasks', async (req,res) => {
 })
 
 // SERVER LOCATION
-app.listen(process.env.PORT, () => {
-    sequelize.sync(() => {
-        console.log('Kanban app running on port', process.env.PORT)
-    })
+app.listen(3001, async () => {
+    await sequelize.sync()
+    console.log('web server running')
 })
+
+//app.listen(process.env.PORT, () => {
+//    sequelize.sync(() => {
+//        console.log('Kanban app running on port', process.env.PORT)
+//    })
+//})
 
