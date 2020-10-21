@@ -25,39 +25,21 @@
      0 4.4px 4.4px rgba(128, 128, 128, 0.241),
      0 12px 12px rgba(128, 128, 128, 0.35);
     }
-
-    </style>
-</head>
-<main>
-    <div class="edit_task"><h1>Edit Task</h1></div>
-
-    <form class="task_name" action="/project_board" method="POST">
-            <label>Task Name</label>
-            <input name="name" type="text" min="3" max="100" placeholder="Task Name" required/>
-            <br>
-            <button>Submit</button>
-            <br>
-            <label>Cancel</label>
-            <br>
-            <button><a href="/project_board">View All</a></button>
-            <br>
-          </form>
-
-          </form>
-</main>
-        label {
+      label {
         padding: 12px 12px 12px 0;
         display: inline-block;
     }
+
     </style>
 </head>
+
 
 <body>
     <main>
     <div>
         <h1 style="padding-top: 100px;">Edit Task in {{project.name}}</h1>
     </div>
-    <form action="/project_board/{{project.id}}/edit_task/{{task.id}}" method="POST">
+    <form class="task_name" action="/project_board/{{project.id}}/edit_task/{{task.id}}" method="POST">
         <label>New name</label>
         <input name="name" type="text" value="{{task.name}}" required/>
         <br>
