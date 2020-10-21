@@ -26,33 +26,11 @@ h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background: #95d3db;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-h1 {
-    font-size: 30px;
-}
-
-h2 {
-    font-size: 25px;
-}
-
-h3 {
-    font-size: 20px;
-}
-
-.lp-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 hr {
     border: 1px solid white;
     margin-bottom: 25px;
-
 }
 
 nav {
@@ -90,22 +68,7 @@ button:hover{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.19); 
 }
-
-
  
-div {
-  text-align: center;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  width: 300px;
-  border: 15px;
-  padding: 50px;
-  margin: 20px;
-  text-decoration: underline;
-  text-decoration-color: black;
-  display: inline;
-  
-}
-
 
 input[type=text],input[type=url]{
     width: 100%;
@@ -139,9 +102,7 @@ input[type=text],input[type=url]{
 }
 
 .ProjectCard {
-
     background-color:rgba(255, 255, 255, 0.8);
-
     height: 180px;
     width: 250px;
     display: flex;
@@ -152,21 +113,14 @@ input[type=text],input[type=url]{
     color: black;
     border-width: 10px;
     border-top-style: solid;
-
-    border-top-color: rgb(141, 209, 86);
-    border-radius: 5px;
-
     border-top-color: rgb(214, 247, 187);
     border-radius: 5px;
-
 }
 
 .ProjectCard:hover{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.1); 
-
 }
-
 
 .ProjectHeader {
     display: grid;
@@ -266,6 +220,12 @@ input[type=text],input[type=url]{
     border-radius: 5px;
 }
 
+.todosection-top {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: none;
+}
+
 .doingsection {
     background-color: rgba(255, 255, 255, 0.8);
     border-top-color: rgb(247, 246, 187);
@@ -302,4 +262,27 @@ ul {
     list-style: none;
 }
 
-
+.edit_task {
+    padding: 20px;
+    text-align: center;
+    background-color: rgb(255, 255, 255);
+    background-image: linear-gradient(#20a7ad,#95d3db, white);
+    color: black;
+    font-size: 30px;
+    position: fixed;
+    top: 6.5%;
+    left: -3%;
+    width: 100%;
+}
+  
+.task_name{
+   border-radius: 5px;
+   background-color: #20a7ad;
+   padding: 20px;
+   text-align: center;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+   0 1px 1px rgba(128, 128, 128, 0.155),
+   0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+   0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+   0 12px 12px rgba(128, 128, 128, 0.35);
+}
