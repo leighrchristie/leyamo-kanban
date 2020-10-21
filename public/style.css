@@ -1,38 +1,13 @@
+/* Styling for all pages */
 * {
     margin: 0;
     padding: 0;
     text-decoration: none;
+    font-family: 'Comfortaa', cursive;
 }
-
 body {
-    min-height: 100vh;
     background: #95d3db;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
-h1 {
-    font-size: 30px;
-}
-
-h2 {
-    font-size: 25px;
-}
-
-h3 {
-    font-size: 20px;
-}
-
-.lp-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-hr {
-    border: 1px solid white;
-    margin-bottom: 25px;
-}
-
 nav {
     background-color: #20a7ad;
     padding: 1rem;
@@ -45,7 +20,7 @@ nav {
 nav a {
     color: black;
     display: block;
-    width: 80px;
+    width: 100px;
     padding: 4px 6px;
     float: left;
     text-align: center;
@@ -53,23 +28,25 @@ nav a {
 nav a:hover {
     background-color: #007197;
 }
-
-button {  
-    color:black;  
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;   
-    background-color: white;
-    border:5px black double;
-    padding: 5px;
-    cursor: pointer;
-} 
-
-button:hover{
-    box-shadow : 0 8px 16px 0 black, 
-             0 6px 20px  0 rgba(0, 0, 0, 0.19); 
+h1 {
+    font-size: 30px;
 }
- 
-
+h2 {
+    font-size: 25px;
+}
+h3 {
+    font-size: 20px;
+}
+label {
+    padding: 12px 12px 12px 0;
+    display: inline-block;
+}
+button {  
+    margin: 10px;
+    cursor: pointer;
+    background-color: white;
+    padding: 5px;
+} 
 input[type=text],input[type=url]{
     width: 100%;
     padding: 10px 15px;
@@ -78,21 +55,36 @@ input[type=text],input[type=url]{
     border: 2px solid rgba(26, 25, 25, 0.753);
     border-radius: 4px;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.btn {
-    padding: 8px 20px;
-    border-radius: 0;
-    overflow: hidden;
-      background: linear-gradient(
-        120deg,
-        transparent,
-        var(--primary-color),
-        transparent
-      )
+/* Styling for landing page */
+.logo {
+    padding-top: 100px;
+    padding-bottom: 30px;
+    text-align: center;
+    font-size: 70px;
+}
+.lp-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lp-forms {
+    border-radius: 5px;
+    width: 250px;
+    height: 220px;
+    background-color: #20a7ad;
+    padding: 20px;
+    margin: 1rem;
+    text-align: center;
+    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+      0 1px 1px rgba(128, 128, 128, 0.155),
+      0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+      0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+      0 12px 12px rgba(128, 128, 128, 0.35);
 }
 
+/* All Project Board Styling */
 .ProjectsList {
     display: grid;
     grid-template-columns: auto auto auto auto;
@@ -100,9 +92,8 @@ input[type=text],input[type=url]{
     padding: 3rem;
     gap: 3rem;
 }
-
 .ProjectCard {
-    background-color:rgba(255, 255, 255, 0.8);
+    background-color:rgba(255, 255, 255, 0.9);
     height: 180px;
     width: 250px;
     display: flex;
@@ -113,21 +104,20 @@ input[type=text],input[type=url]{
     color: black;
     border-width: 10px;
     border-top-style: solid;
-    border-top-color: rgb(214, 247, 187);
+    border-top-color: #20a7ad;
     border-radius: 5px;
 }
-
 .ProjectCard:hover{
     box-shadow : 0 8px 16px 0 black, 
              0 6px 20px  0 rgba(0, 0, 0, 0.1); 
 }
 
+/* Single Project Board Styling */
 .ProjectHeader {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: none;
 }
-
 .ProjectName {
     margin: 2rem;
     background-color: rgba(255, 255, 255, 0.8);
@@ -137,16 +127,13 @@ input[type=text],input[type=url]{
     border-radius: 5px;
     min-height: 100px;
 }
-
 .ProjectName h1 {
     text-align: center;
     padding-top: 20px;
 }
-
 .ProjectName h3 {
-    padding-left: 5px;
+    padding: 10px;
 }
-
 .ProjectPeople {
     margin: 2rem;
     background-color: rgba(255, 255, 255, 0.8);
@@ -156,25 +143,9 @@ input[type=text],input[type=url]{
     border-radius: 5px;
     min-height: 100px;
 }
-
-.iconalignment {
-    display: grid;
-    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-    grid-template-rows: none;
+.ProjectPeople h3 {
     padding: 10px;
 }
-
-.plus-button {
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
-    margin: 5px;
-}
-
-.ProjectPeople h3 {
-    padding-left: 5px;
-}
-
 .icon {
     width: 50px;
     height: 50px;
@@ -182,25 +153,59 @@ input[type=text],input[type=url]{
     background-size: cover;
     margin: 5px;
 }
-
+.iconalignment {
+    display: grid;
+    grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+    grid-template-rows: none;
+    padding: 10px;
+}
+.plus-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    margin: 5px;
+    font-size: 30px;
+}
 .ProjectColumnGrid {
     display: grid;
     grid-template-columns: 33% 34% 33%;
     grid-template-rows: none;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     min-height: 200px;
 }
-
 .ProjectColumns {
     margin: 2rem;
     border-radius: 5px;
 }
-
 .ProjectColumns h3 {
     text-align: center;
     margin: 1rem;
 }
-
+.todosection {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top-color: #e6b2b2;
+    border-top-width: 10px;
+    border-top-style: solid;
+    border-radius: 5px;
+}
+.todosection-top {
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-rows: none;
+}
+.doingsection {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top-color: rgb(247, 246, 187);
+    border-top-width: 10px;
+    border-top-style: solid;
+    border-radius: 5px;
+}
+.donesection {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-top-color: rgb(214, 247, 187);
+    border-top-width: 10px;
+    border-top-style: solid;
+    border-radius: 5px;
+}
 .task {
     width: auto;
     height: 60px;
@@ -211,38 +216,7 @@ input[type=text],input[type=url]{
     margin: 5px;
     border-radius: 5px;
 }
-
-.todosection {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-color: #e6b2b2;
-    border-top-width: 10px;
-    border-top-style: solid;
-    border-radius: 5px;
-}
-
-.todosection-top {
-    display: grid;
-    grid-template-columns: 30% 40% 30%;
-    grid-template-rows: none;
-}
-
-.doingsection {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-color: rgb(247, 246, 187);
-    border-top-width: 10px;
-    border-top-style: solid;
-    border-radius: 5px;
-}
-
-.donesection {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-color: rgb(214, 247, 187);
-    border-top-width: 10px;
-    border-top-style: solid;
-    border-radius: 5px;
-}
-
-.deletesection {
+/*.deletesection {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin-left: 23rem;
     margin-right: 23rem;
@@ -252,37 +226,26 @@ input[type=text],input[type=url]{
     border-color: #007197;
     background-color: rgba(255, 255, 255, 0.8);
 }
-
 .deletesection h1 {
     text-align: center;
     padding: 1rem;
-}
+}*/
 
-ul {
-    list-style: none;
+/* Add Task, Edit Task and Add Collab Page Styling */
+.structure-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
-.edit_task {
+.form-structure {
+    width: 400px;
+    border-radius: 5px;
+    background-color: #20a7ad;
     padding: 20px;
     text-align: center;
-    background-color: rgb(255, 255, 255);
-    background-image: linear-gradient(#20a7ad,#95d3db, white);
-    color: black;
-    font-size: 30px;
-    position: fixed;
-    top: 6.5%;
-    left: -3%;
-    width: 100%;
-}
-  
-.task_name{
-   border-radius: 5px;
-   background-color: #20a7ad;
-   padding: 20px;
-   text-align: center;
-    box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
-   0 1px 1px rgba(128, 128, 128, 0.155),
-   0 2.1px 2.1px rgba(128, 128, 128, 0.195),
-   0 4.4px 4.4px rgba(128, 128, 128, 0.241),
-   0 12px 12px rgba(128, 128, 128, 0.35);
+     box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),
+    0 1px 1px rgba(128, 128, 128, 0.155),
+    0 2.1px 2.1px rgba(128, 128, 128, 0.195),
+    0 4.4px 4.4px rgba(128, 128, 128, 0.241),
+    0 12px 12px rgba(128, 128, 128, 0.35);
 }

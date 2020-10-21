@@ -1,39 +1,76 @@
 <head>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/apprun/dist/apprun-html.js"></script>
 </head>
 <main>
-    <section>
-        <section class="ProjectHeader" style="padding-top: 60px;">
-            <div class="ProjectName">
-                <h3>Project Name:</h3>
-                <h1>{{project.name}}</h1>
-            </div>
-            <div class="ProjectPeople">
-                <h3>People on the project:</h3>
-                <div class="iconalignment">
+    <section class="ProjectHeader" style="padding-top: 60px;">
+        <div class="ProjectName">
+            <h3>Project Name:</h3>
+            <h1>{{project.name}}</h1>
+        </div>
+        <div class="ProjectPeople">
+            <h3>People on the project:</h3>
+            <div class="iconalignment">
                 {{#each users}}
                 <div class="icon" style="background-image: url({{this.image}});"></div>
                 {{/each}}
                 <a href="/project_board/{{project.id}}/add_collaborator"><button class="plus-button">+</button></a>
-                </div>
             </div>
-        </section>
-        {{!-- <section>
-            <h1 style="margin-left: 2rem;">Project Tasks</h1>
-            <a href="/project_board/{{project.id}}/add_task"><button>Add Task</button></a>
-            {{#each tasks}}
-            <h3>{{this.name}}</h3>
-            <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
-                <button>✏️</button>
-            </form>
-            <form action="/project_board/{{../project.id}}/delete_task/{{this.id}}" method="POST">
-                <button>❌</button>
-            </form>
-            {{/each}}
-        </section> --}}
+        </div>
     </section>
     <section>
-        <main id="todoApp"></main>
-        <script src="/project_board.js"></script>
+        <h1 style="text-align: center">Project Tasks</h1>
     </section>
+    <section class="ProjectColumnGrid">
+        <section class="todosection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <section class="todosection-top">
+                <div>
+                </div>
+                <div>
+                    <h3 style="">To-do</h3>
+                </div>
+                <div>
+                    <a href="/project_board/{{project.id}}/add_task"><button class="plus-button">+</button></a>
+                </div>
+            </section>
+            <div>
+                {{#each tasks}}
+                <div class="task" ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true"
+                    id="dragtarget">
+                    <h3>{{this.name}}</h3>
+                    <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
+                        <button>✏️</button>
+                    </form>
+                    <form action="/project_board/{{../project.id}}/delete_task/{{this.id}}" method="POST">
+                        <button>❌</button>
+                    </form>
+                </div>
+                {{/each}}
+            </div>
+        </section>
+        <section class="doingsection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Doing</h3>
+        </section>
+        <section class="donesection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+            <h3>Done</h3>
+        </section>
+    </section>
+    {{!--<section class="deletesection">
+        <h1>♻</h1>
+    </section>--}}
+    <script>
+        /* Events fired on the drag target */
+        function dragStart(event) {
+            event.dataTransfer.setData("Text", event.target.id);
+        }
+        /* Events fired on the drop target */
+        function allowDrop(event) {
+            event.preventDefault();
+        }
+        function drop(event) {
+            event.preventDefault();
+            var data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+        }
+    </script>
 </main>
