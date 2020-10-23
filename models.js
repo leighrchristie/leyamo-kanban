@@ -30,9 +30,18 @@ Project.init({
 class Task extends Model {}
 Task.init({
     name: DataTypes.STRING,
+    description: DataTypes.STRING,
+    deadline: DataTypes.DATEONLY,
+    priority: DataTypes.STRING,
+    assignee: {
+        type: DataTypes.STRING,
+        defaultValue: 'unassigned'
+    },
+    assigneeimage: DataTypes.STRING,
     state: {
         type: DataTypes.INTEGER, 
-        defaultValue: 0}
+        defaultValue: 0
+    }
 }, {sequelize})
 
 Project.hasMany(Task, {as: 'tasks'})

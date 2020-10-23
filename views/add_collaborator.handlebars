@@ -11,7 +11,7 @@
         <form class="form-structure" action="/project_board/{{project.id}}/add_collaborator" method="POST">
             <label for="collaborators">Choose collaborators:</label>
             <div>
-            <select name="collaborators" id="collaborators" multiple>
+            <select name="collaborators" id="collaborators" multiple style="width: 200px;">
                 {{#each users}}
                 <option value="{{this.id}}">{{this.name}}</option>
                 {{/each}}

@@ -3,13 +3,13 @@
     margin: 0;
     padding: 0;
     text-decoration: none;
-    font-family: 'Comfortaa', cursive;
+    font-family: 'Bebas Neue', cursive;
 }
 body {
-    background: #95d3db;
+    background: #3aafa9;
 }
 nav {
-    background-color: #20a7ad;
+    background-color: #feffff;
     padding: 1rem;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     overflow: hidden;
@@ -26,7 +26,8 @@ nav a {
     text-align: center;
 }
 nav a:hover {
-    background-color: #007197;
+    background-color: #17252a;
+    color: white;
 }
 h1 {
     font-size: 30px;
@@ -44,8 +45,10 @@ label {
 button {  
     margin: 10px;
     cursor: pointer;
-    background-color: white;
+    background-color: #def2f1;
     padding: 5px;
+    border-color: #17252a;
+    border-style: solid;
 } 
 input[type=text],input[type=url]{
     width: 100%;
@@ -57,7 +60,15 @@ input[type=text],input[type=url]{
     box-sizing: border-box;
 }
 
-/* Styling for landing page */
+/* Styling for entrance page */
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+/* Styling for landing page2 */
 .logo {
     padding-top: 100px;
     padding-bottom: 30px;
@@ -72,8 +83,8 @@ input[type=text],input[type=url]{
 .lp-forms {
     border-radius: 5px;
     width: 250px;
-    height: 220px;
-    background-color: #20a7ad;
+    height: 240px;
+    background-color: #feffff;
     padding: 20px;
     margin: 1rem;
     text-align: center;
@@ -93,7 +104,7 @@ input[type=text],input[type=url]{
     gap: 3rem;
 }
 .ProjectCard {
-    background-color:rgba(255, 255, 255, 0.9);
+    background-color:#feffff;
     height: 180px;
     width: 250px;
     display: flex;
@@ -104,7 +115,7 @@ input[type=text],input[type=url]{
     color: black;
     border-width: 10px;
     border-top-style: solid;
-    border-top-color: #20a7ad;
+    border-top-color: #17252a;
     border-radius: 5px;
 }
 .ProjectCard:hover{
@@ -120,8 +131,8 @@ input[type=text],input[type=url]{
 }
 .ProjectName {
     margin: 2rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-color: #20a7ad;
+    background-color: #feffff;
+    border-top-color: #17252a;
     border-top-width: 10px;
     border-top-style: solid;
     border-radius: 5px;
@@ -136,8 +147,8 @@ input[type=text],input[type=url]{
 }
 .ProjectPeople {
     margin: 2rem;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-color: #20a7ad;;
+    background-color: #feffff;
+    border-top-color: #17252a;
     border-top-width: 10px;
     border-top-style: solid;
     border-radius: 5px;
@@ -149,7 +160,7 @@ input[type=text],input[type=url]{
 .icon {
     width: 50px;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 5px;
     background-size: cover;
     margin: 5px;
 }
@@ -162,9 +173,10 @@ input[type=text],input[type=url]{
 .plus-button {
     width: 50px;
     height: 50px;
-    border-radius: 25px;
+    border-radius: 5px;
     margin: 5px;
-    font-size: 30px;
+    font-size: 15px;
+    border-color: #17252a;
 }
 .ProjectColumnGrid {
     display: grid;
@@ -181,8 +193,8 @@ input[type=text],input[type=url]{
     margin: 1rem;
 }
 .todosection {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-color: #e6b2b2;
+    background-color: #def2f1;
+    border-top-color: #2b7a78;
     border-top-width: 10px;
     border-top-style: solid;
     border-radius: 5px;
@@ -193,43 +205,144 @@ input[type=text],input[type=url]{
     grid-template-rows: none;
 }
 .doingsection {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-color: rgb(247, 246, 187);
+    background-color: #def2f1;
+    border-top-color: #2b7a78;
     border-top-width: 10px;
     border-top-style: solid;
     border-radius: 5px;
 }
 .donesection {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-top-color: rgb(214, 247, 187);
+    background-color: #def2f1;
+    border-top-color: #2b7a78;
     border-top-width: 10px;
     border-top-style: solid;
     border-radius: 5px;
 }
-.task {
+.taskwrapper {
     width: auto;
-    height: 60px;
+    height: auto;
     background-color: white;
+    margin: 5px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: 15% auto 15%;
+    grid-template-areas: 
+    "priority title delete"
+    "task task task"
+    "edit deadline person";
+}
+.taskbutton {
+    margin: 5px;
+    cursor: pointer;
+    background-color: white;
+    padding: 5px;
+    font-size: 20px;
+    border:none;
+    outline:none;
+}
+.taskpriority {
+    grid-area: priority;
+}
+.priority[priority="Blocker"]:after {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px;
-    border-radius: 5px;
+    padding-top: 50px;
+    content: url(https://live.staticflickr.com/65535/50516208752_d99fdde215_o.png);
+    zoom: 10%;
 }
-/*.deletesection {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin-left: 23rem;
-    margin-right: 23rem;
-    min-height: 75px;
-    border-style: dashed;
-    border-width: 3px;
-    border-color: #007197;
-    background-color: rgba(255, 255, 255, 0.8);
+.priority[priority="High"]:after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    content: url(https://live.staticflickr.com/65535/50516207252_c94bfe08c4_o.png);
+    zoom: 10%;
 }
-.deletesection h1 {
+.priority[priority="Medium"]:after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    content: url(https://live.staticflickr.com/65535/50516207227_224f28741e_o.png);
+    zoom: 10%;
+}
+.priority[priority="Low"]:after {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 50px;
+    content: url(https://live.staticflickr.com/65535/50516039886_0f66fd83bb_o.png);
+    zoom: 10%;
+}
+.tasktitle {
+    grid-area: title;
     text-align: center;
-    padding: 1rem;
-}*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+.taskdelete {
+    grid-area: delete;
+}
+.taskdesc {
+    grid-area: task;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+.taskdesctext {
+    margin-top: 15px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.taskedit {
+    grid-area: edit;
+}
+.taskdeadline {
+    grid-area: deadline;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12px;
+}
+.taskperson {
+    grid-area: person;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    background-size: cover;
+}
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    font-size: 13px;
+    background-color: #20a7ad;
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0; 
+/* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
 
 /* Add Task, Edit Task and Add Collab Page Styling */
 .structure-body {
@@ -240,7 +353,7 @@ input[type=text],input[type=url]{
 .form-structure {
     width: 400px;
     border-radius: 5px;
-    background-color: #20a7ad;
+    background-color: #def2f1;
     padding: 20px;
     text-align: center;
      box-shadow: 0 0.4px 0.4px rgba(128, 128, 128, 0.109),

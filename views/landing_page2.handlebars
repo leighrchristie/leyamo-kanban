@@ -1,0 +1,32 @@
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="logo">Leyamo Kanban.</div>
+
+  <main class="lp-body">
+
+    <form class="lp-forms" action="/add_user" method="POST">
+      <label>Create a new user</label>
+      <input name="name" type="text" placeholder="User's name" required />
+      <br>
+      <label>Image URL</label>
+      <input name="image" type="url" placeholder="Image URL" required />
+      <br>
+      <button>Submit</button>
+      <br>
+    </form>
+
+    <form class="lp-forms" action="/new_project_board" method="POST">
+      <label>Create a new project board</label>
+      <input name="name" type="text" placeholder="Project board's name" required />
+      <br>
+      <button>Submit</button>
+      <br>
+    </form>
+
+  </main>
+
+</body>

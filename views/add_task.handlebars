@@ -4,19 +4,33 @@
 
 <body>
     <div>
-        <h1 style="padding-top: 100px; padding-bottom: 30px; text-align: center">Add Task in <i>{{project.name}}</i></h1>
+        <h1 style="padding-top: 100px; padding-bottom: 30px; text-align: center">Add Task in <i>{{project.name}}</i>
+        </h1>
     </div>
     <main class="structure-body">
         <form class="form-structure" action='/project_board/{{project.id}}/add_task' method="POST">
-            <label>Task Name/Description</label>
-            <input name="name" type="text" placeholder="description" maxlength="200" minlength="3"/>
-            <input name="ProjectId" type="hidden" value="{{project.id}}" />
-            <label for="assignee">Assignee</label>
-            <select name="assignee" id="assignee">
-                <option value="unassigned">unassigned</option>
+            <label>Task Name</label>
+            <input name="name" type="text" placeholder="name" maxlength="40" minlength="3" />
+            <input name="description" type="text" placeholder="description" maxlength="200" />
+            <input name="ProjectId" type="hidden" value="{{project.id}}" /> 
+            <div> 
+            <label>Choose assignee:</label>
+            <select name="assignee">
+                <option value="unassigned">Unassigned</option>
                 {{#each users}}
-                <option value="{{this.id}}">{{this.name}}</option>
+                <option value="{{this.name}}">{{this.name}}</option>
+                <input name="assigneeimage" type="hidden" value="{{this.image}}" />
                 {{/each}}
+            </select>
+            </div> 
+            <label>Due date:</label>
+            <input name="deadline" type="date">
+            <label>Choose a priority:</label>
+            <select name="priority" type="text">
+                <option selected value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Blocker">Blocker</option>
             </select>
             <br>
             <button>Add task</button>

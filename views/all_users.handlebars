@@ -1,0 +1,19 @@
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+</head>
+
+<main>
+    <body>
+        <div class="all_project_boards">
+            <h1>All Users</h1>
+        </div>
+        <section class="ProjectList" style="padding-top: 10%;">
+            <section class="ProjectsList">
+                {{#each users}}
+                <div class="ProjectCard" style="background-image: url({{this.image}}); background-size: cover;">
+                    <h2 style="background-color: rgba(255, 255, 255, 0.7); border-radius: 5px; padding: 3px;">{{this.name}}</h2>
+                </div>
+                {{/each}}
+            </section>
+    </body>
+</main>

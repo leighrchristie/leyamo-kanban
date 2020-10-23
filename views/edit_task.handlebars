@@ -8,15 +8,30 @@
     </div>
     <main class="structure-body">
         <form class="form-structure" action="/project_board/{{project.id}}/edit_task/{{task.id}}" method="POST">
-            <label>New name</label>
+            <label>New name:</label>
             <input name="name" type="text" value="{{task.name}}" required />
-            <br>
-            <label for="assignee">New assignee</label>
-            <select name="assignee" id="assignee">
-                <option value="unassigned">unassigned</option>
+            <label>New description:</label>
+            <input name="description" type="text" value="{{task.description}}" required />
+            <label>Choose assignee:</label>
+            <select name="assignee">
+                <option selected>{{task.assignee}}</option>
+                <option value="unassigned">Unassigned</option>
                 {{#each users}}
-                <option value="{{this.id}}">{{this.name}}</option>
+                <option value="{{this.name}}">{{this.name}}</option>
+                <input name="assigneeimage" type="hidden" value="{{this.image}}" />
                 {{/each}}
+            </select>
+            <br>
+            <div><label>Old due date:</label><p>{{task.deadline}}</p></div>
+            <label>New due date:</label>
+            <input name="deadline" type="date">
+            <label>Choose a priority:</label>
+            <select name="priority" type="text">
+                <option selected value="{{task.priority}}">{{task.priority}}</option>
+                <option value="Low">Low</option>
+                <option value="Medium">Medium</option>
+                <option value="High">High</option>
+                <option value="Blocker">Blocker</option>
             </select>
             <br>
             <button>Edit task</button>

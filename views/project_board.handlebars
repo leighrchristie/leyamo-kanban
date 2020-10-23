@@ -7,6 +7,8 @@
         <div class="ProjectName">
             <h3>Project Name:</h3>
             <h1>{{project.name}}</h1>
+            <a href="/project_board/{{project.id}}/delete"><button
+                    onclick="return confirm('Are you sure you want to delete this item')">❌</button></a>
         </div>
         <div class="ProjectPeople">
             <h3>People on the project:</h3>
@@ -14,7 +16,7 @@
                 {{#each users}}
                 <div class="icon" style="background-image: url({{this.image}});"></div>
                 {{/each}}
-                <a href="/project_board/{{project.id}}/add_collaborator"><button class="plus-button">+</button></a>
+                <a href="/project_board/{{project.id}}/add_collaborator"><button class="plus-button">➕</button></a>
             </div>
         </div>
     </section>
@@ -22,7 +24,8 @@
         <h1 style="text-align: center">Project Tasks</h1>
     </section>
     <section class="ProjectColumnGrid">
-        <section class="todosection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <section class="todosection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"
+            id="todo">
             <section class="todosection-top">
                 <div>
                 </div>
@@ -30,34 +33,99 @@
                     <h3 style="">To-do</h3>
                 </div>
                 <div>
-                    <a href="/project_board/{{project.id}}/add_task"><button class="plus-button">+</button></a>
+                    <a href="/project_board/{{project.id}}/add_task"><button class="plus-button" style="width: 35px; height: 35px">➕</button></a>
                 </div>
             </section>
             <div>
-                {{#each tasks}}
-                <div class="task" ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true"
-                    id="dragtarget">
-                    <h3>{{this.name}}</h3>
-                    <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
-                        <button>✏️</button>
-                    </form>
-                    <form action="/project_board/{{../project.id}}/delete_task/{{this.id}}" method="POST">
-                        <button>❌</button>
-                    </form>
+                {{#each todo}}
+                <div class="taskwrapper" ondragstart="dragStart(event)" draggable="true" id="{{this.id}}">
+                    <p priority="{{this.priority}}" class="taskpriority priority"></p>
+                    <p class="tasktitle">{{this.name}}</p>
+                    <div class="taskdelete">
+                        <form action="/project_board/{{../project.id}}/delete_task/{{this.id}}" method="POST">
+                            <button class="taskbutton"
+                                onclick="return confirm('Are you sure you want to delete this item')">❌</button>
+                        </form>
+                    </div>
+                    <div class="taskdesc">
+                        <p class="taskdesctext">{{this.description}}</p>
+                    </div>
+                    <div class="taskedit">
+                        <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
+                            <button class="taskbutton">✏️</button>
+                        </form>
+                    </div>
+                    <div class="taskdeadline">
+                        <p>Due: {{this.deadline}}</p>
+                    </div>
+                    <div class="taskperson icon tooltip" style="background-image: url({{this.assigneeimage}});">
+                        <span class="tooltiptext">{{this.assignee}}</span>
+                    </div>
                 </div>
                 {{/each}}
             </div>
         </section>
-        <section class="doingsection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <section class="doingsection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"
+            id="doing">
             <h3>Doing</h3>
+            {{#each doing}}
+            <div class="taskwrapper" ondragstart="dragStart(event)" draggable="true" id="{{this.id}}">
+                    <p priority="{{this.priority}}" class="taskpriority priority"></p>
+                    <p class="tasktitle">{{this.name}}</p>
+                    <div class="taskdelete">
+                        <form action="/project_board/{{../project.id}}/delete_task/{{this.id}}" method="POST">
+                            <button class="taskbutton"
+                                onclick="return confirm('Are you sure you want to delete this item')">❌</button>
+                        </form>
+                    </div>
+                    <div class="taskdesc">
+                        <p class="taskdesctext">{{this.description}}</p>
+                    </div>
+                    <div class="taskedit">
+                        <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
+                            <button class="taskbutton">✏️</button>
+                        </form>
+                    </div>
+                    <div class="taskdeadline">
+                        <p>Due: {{this.deadline}}</p>
+                    </div>
+                    <div class="taskperson icon tooltip" style="background-image: url({{this.assigneeimage}});">
+                        <span class="tooltiptext">{{this.assignee}}</span>
+                    </div>
+                </div>
+            {{/each}}
         </section>
-        <section class="donesection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <section class="donesection ProjectColumns droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"
+            id="done">
             <h3>Done</h3>
+            {{#each doing}}
+            <div class="taskwrapper" ondragstart="dragStart(event)" draggable="true" id="{{this.id}}">
+                    <p priority="{{this.priority}}" class="taskpriority priority"></p>
+                    <p class="tasktitle">{{this.name}}</p>
+                    <div class="taskdelete">
+                        <form action="/project_board/{{../project.id}}/delete_task/{{this.id}}" method="POST">
+                            <button class="taskbutton"
+                                onclick="return confirm('Are you sure you want to delete this item')">❌</button>
+                        </form>
+                    </div>
+                    <div class="taskdesc">
+                        <p class="taskdesctext">{{this.description}}</p>
+                    </div>
+                    <div class="taskedit">
+                        <form action="/project_board/{{../project.id}}/edit_task/{{this.id}}" method="GET">
+                            <button class="taskbutton">✏️</button>
+                        </form>
+                    </div>
+                    <div class="taskdeadline">
+                        <p>Due: {{this.deadline}}</p>
+                    </div>
+                    <div class="taskperson icon tooltip" style="background-image: url({{this.assigneeimage}});">
+                        <span class="tooltiptext">{{this.assignee}}</span>
+                    </div>
+                </div>
+            {{/each}}
         </section>
     </section>
-    {{!--<section class="deletesection">
-        <h1>♻</h1>
-    </section>--}}
     <script>
         /* Events fired on the drag target */
         function dragStart(event) {
@@ -70,7 +138,10 @@
         function drop(event) {
             event.preventDefault();
             var data = event.dataTransfer.getData("Text");
+            var state = ['todo', 'doing', 'done'].indexOf(event.target.id)
+            console.log(data, state)
             event.target.appendChild(document.getElementById(data));
+            fetch(`/tasks/${data}/state/${state}`)
         }
     </script>
 </main>

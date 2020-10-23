@@ -5,6 +5,7 @@ const expressHandlebars = require('express-handlebars')
 const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access')
 const app = express()
 const {User, Task, Project, sequelize} = require('./models')
+const { request } = require('http')
 const handlebars = expressHandlebars({
     handlebars: allowInsecurePrototypeAccess(Handlebars)
 })
@@ -19,6 +20,15 @@ app.set('view engine', 'handlebars')
 // GET REQUESTS
 app.get('/', (req, res) => {
     res.render('landing_page')
+})
+
+app.get('/landing_page2', (req, res) => {
+    res.render('landing_page2')
+})
+
+app.get('/all_users', async (req, res) => {
+    const users = await User.findAll()
+    res.render('all_users', {users})
 })
 
 app.get('/view_all_projects', async (req, res) => {
@@ -36,7 +46,18 @@ app.get('/project_board/:id', async (req, res) => {
             ProjectId : req.params.id
         }
     })
-    res.render('project_board', {project, users, tasks})
+    const todo = tasks.filter(task => {
+        return task.state === 0
+    })
+    const doing = tasks.filter(task => task.state === 1)
+    const done = tasks.filter(task => task.state === 2)
+    res.render('project_board', {project, users, todo, doing, done})
+})
+
+app.get('/project_board/:id/delete', async (req, res) => {
+    const project = await Project.findByPk(req.params.id)
+    await project.destroy()
+    res.redirect('/view_all_projects')
 })
 
 app.get('/project_board/:id/add_task', async (req, res) => {
@@ -67,10 +88,18 @@ app.get('/tasks/:id', async (req, res) => {
     res.send(tasks)
 })
 
+app.get('/tasks/:id/state/:state', async (req, res) => {
+    const task = await Task.findByPk(req.params.id)
+    await task.update({state: Number(req.params.state)})
+    res.send()
+})
+
+
+
 // POST REQUESTS
 app.post('/add_user', async (req, res) => {
     await User.create(req.body)
-    res.redirect('/')
+    res.redirect('/all_users')
 })
 
 app.post('/new_project_board', async (req, res) => {
@@ -109,8 +138,9 @@ app.post('/tasks', async (req,res) => {
     res.send()
 })
 
+
 // SERVER LOCATION
-app.listen(3001, async () => {
+app.listen(3002, async () => {
     await sequelize.sync()
     console.log('web server running')
 })
